@@ -1,4 +1,3 @@
-require 'mailtrain/base'
 require "mailtrain/client"
 require 'mailtrain/response'
 require 'mailtrain/version'
