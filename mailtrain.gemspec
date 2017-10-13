@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'mailtrain'
-  s.version     = '0.0.2'
+  s.version     = '0.0.3'
   s.date        = '2017-09-28'
   s.summary     = "Sendy!"
   s.description = "A simple MailTrain API"
