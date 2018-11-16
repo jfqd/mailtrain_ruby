@@ -13,7 +13,7 @@ client = Mailtrain.new "http://xxxx.your.mailtrain.url", "your_access_token"
 Then you can subscribe or unsubscribe from a list:
 
 ```ruby
-> client.subscribe list_id, "demo@demo.com", "My First Name", "My Last Name", "UTC", true
+> client.subscribe list_id, "demo@demo.com", "My First Name", "My Last Name", "UTC", false, true
 => true
 > client.unsubscribe list_id, "demo@demo.com"
 => false
@@ -22,7 +22,7 @@ Then you can subscribe or unsubscribe from a list:
 ```
 subscribe
 required: list_id, email
-optional: first_name, last_name, timezone(default UTC), force_subscribe(default true)
+optional: first_name, last_name, timezone(default UTC), force_subscribe(default false), require_confirmation(default true)
 
 unsubscribe
 required: list_id, email

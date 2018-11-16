@@ -12,7 +12,7 @@ module Mailtrain
     end
 
     # Add subscription
-    def subscribe(list_id, email, first_name = nil, last_name = nil, timezone = nil, force_subscribe = true)
+    def subscribe(list_id, email, first_name = nil, last_name = nil, timezone = nil, force_subscribe = false, require_confirmation = true)
       response = connection.post "/api/subscribe/#{list_id}?access_token=#{@access_token}" do |req|
         params = {email: email, first_name: first_name, last_name: last_name, timezone: timezone, force_subscribe: force_subscribe}.select { |_, value| !value.nil? }
         req.body = params
