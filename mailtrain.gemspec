@@ -1,9 +1,10 @@
-require 'mailtrain/version'
+$:.push File.expand_path("../lib", __FILE__)
+require 'mailtrain'
 
 Gem::Specification.new do |s|
   s.name          = 'mailtrain'
   s.version       = Mailtrain::Version
-  s.date          = '2018-03-20'
+  s.date          = '2019-03-21'
   s.summary       = "Ruby MailTrain API"
   s.description   = "A simple ruby MailTrain API"
   s.authors       = ["benko"]
