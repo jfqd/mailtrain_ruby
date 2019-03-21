@@ -14,7 +14,14 @@ module Mailtrain
     # Add subscription
     def subscribe(list_id, email, first_name = nil, last_name = nil, timezone = nil, force_subscribe = false, require_confirmation = true)
       response = connection.post "/api/subscribe/#{list_id}?access_token=#{@access_token}" do |req|
-        params = {email: email, first_name: first_name, last_name: last_name, timezone: timezone, force_subscribe: force_subscribe}.select { |_, value| !value.nil? }
+        params = {
+          email:                email,
+          first_name:           first_name,
+          last_name:            last_name,
+          timezone:             timezone,
+          force_subscribe:      force_subscribe,
+          require_confirmation: require_confirmation
+        }.select { |_, value| !value.nil? }
         req.body = params
       end
 
@@ -23,7 +30,7 @@ module Mailtrain
     end
 
     def unsubscribe(list_id, email)
-      response = connection.post "/api/unsubscribe/#{list_id}?access_token=#{@access_token}", {list: list_id, email: email}
+      response = connection.post "/api/unsubscribe/#{list_id}?access_token=#{@access_token}", {email: email}
 
       @response = Response.new response.body
       success?
@@ -70,7 +77,8 @@ module Mailtrain
     def connection
       @connection ||= Faraday.new(:url => @url) do |faraday|
         faraday.request  :url_encoded
-        faraday.adapter  :excon
+        faraday.adapter  Faraday.default_adapter
+        # faraday.response :logger
       end
     end
 
