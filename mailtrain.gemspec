@@ -3,7 +3,7 @@ require 'mailtrain'
 
 Gem::Specification.new do |s|
   s.name          = 'mailtrain'
-  s.version       = Mailtrain::Version
+  s.version       = Mailtrain::VERSION
   s.date          = '2019-03-21'
   s.summary       = "Ruby MailTrain API"
   s.description   = "A simple ruby MailTrain API"
