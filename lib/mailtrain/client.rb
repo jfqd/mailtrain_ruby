@@ -23,10 +23,10 @@ module Mailtrain
           require_confirmation: require_confirmation
         }.select { |_, value| !value.nil? }
         # add additional parameters
-        if !args.nil? && args.class == Hash
+        if !args.nil?
           args.each do |key, value|
             if !key.nil? && key.class == Symbol && !value.nil?
-              params[key] = value
+              params[key.downcase.to_sym] = value
             end
           end
         end
